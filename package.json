@@ -17,6 +17,7 @@
     "test": "nwb test"
   },
   "dependencies": {
+    "jsonp": "^0.2.0",
     "react-typeahead-component": "^0.9.0"
   },
   "peerDependencies": {

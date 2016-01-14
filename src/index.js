@@ -1,5 +1,4 @@
 import React from 'react';
-import Promise from 'promise';
 import JSONP from 'jsonp';
 import Typeahead from 'react-typeahead-component';
 
@@ -13,32 +12,16 @@ export default React.createClass({
     };
   },
 
-  handleChange() {
+  handleChange(event) {
     var query = event.target.value;
-    
-    debugger;
-    
-    return new Promise(function(resolve, reject) {
-        var result = cache[query], url;
+    var url = googleAutoSuggestURL + query;
 
-        url = googleAutoSuggestURL + query;
-        
-        debugger;
+    JSONP(url, function(error, data) {
+      if (error) {
+          reject(error);
+      } else {
 
-        JSONP(url, function(error, data) {
-            if (error) {
-                reject(error);
-            } else {
-                result = data[1].map(function(datum) {
-                    return datum[0];
-                });
-
-                cache[query] = result;
-
-                resolve(result);
-            }
-        });
-
+      }
     });
   },
 
