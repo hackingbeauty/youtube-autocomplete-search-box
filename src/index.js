@@ -13,13 +13,6 @@ export default React.createClass({
     };
   },
 
-  handleOptionsChange(event, options) {
-    var inputValue = value[0];
-    this.setState({
-        inputValue: inputValue
-    });
-  },
-
   handleChange(event) {
     var self = this;
     var query = event.target.value;
@@ -33,11 +26,13 @@ export default React.createClass({
       if (error) {
           reject(error);
       } else {
-        var searchResults = data;
+        var searchResults = data[1];
 
         self.setState({
           options: searchResults
         });
+
+        debugger;
       }
     });
   },
@@ -50,7 +45,6 @@ export default React.createClass({
         placeholder='Search'
         onChange={this.handleChange}
         optionTemplate={OptionsTemplate}
-        onOptionChange={this.handleOptionChange} 
       />
       <h2>Welcome to React components</h2>
     </div>
