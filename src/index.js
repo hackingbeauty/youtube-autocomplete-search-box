@@ -31,8 +31,6 @@ export default React.createClass({
         self.setState({
           options: searchResults
         });
-
-        debugger;
       }
     });
   },
