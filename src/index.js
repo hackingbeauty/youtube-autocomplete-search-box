@@ -1,7 +1,7 @@
 import React from 'react';
 import JSONP from 'jsonp';
 import Typeahead from 'react-typeahead-component';
-import OptionsTemplate from './OptionsTemplate.jsx'
+import OptionsTemplate from './OptionsTemplate'
 
 const googleAutoSuggestURL = '//suggestqueries.google.com/complete/search?client=youtube&ds=yt&q=';
 
