@@ -6,7 +6,6 @@ import Component from '../../src'
 let Demo = React.createClass({
   render() {
     return <div>
-      <h1>youtube-autocomplete-search-box Demo</h1>
       <Component/>
     </div>
   }

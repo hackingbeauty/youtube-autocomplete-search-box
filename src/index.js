@@ -44,7 +44,6 @@ export default React.createClass({
         onChange={this.handleChange}
         optionTemplate={OptionsTemplate}
       />
-      <h2>Welcome to React components</h2>
     </div>
   }
 })
