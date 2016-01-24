@@ -1,44 +1,53 @@
 # youtube-autocomplete-search-box
 
-[![Travis][build-badge]][build]
-[![npm package][npm-badge]][npm]
-[![Coveralls][coveralls-badge]][coveralls]
-
-Collaborating on this React component:
-
-## Prerequisites
-
-You will need the following things properly installed on your computer.
-
-* [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org/) (with npm)
-* [nwb](https://github.com/insin/nwb/) - `npm install -g nwb`
-
 ## Installation
 
-* `git clone <repository-url>` this repository
-* change into the new directory
-* `npm install`
+* `npm install youtube-autocomplete-search-box --save`
 
-## Running / Development
+## Features
 
-* `nwb serve` will run the component's demo app
-* Visit the demo at [http://localhost:3000](http://localhost:3000)
+- Autocomplete text entry
+- Search Youtube based on text input
+- Drop-down list of search results
+- Retrieve list of results from Youtube
 
-### Running Tests
+## Usage
 
-* `nwb test` will run the tests once
-* `nwb test --server` will run the tests on every change
+```js
+<YoutubeSearchBox
+	id={string}            // defaults -> #youtubeSearchBox
+	placeHolder={string}   // defaults -> "Search Youtube"
+	className={string}     // defaults -> random string
+	callback={function}
+/>
+```
 
-### Building
+## Example
 
-* `nwb build`
+```js
+import YoutubeSearchBox from 'YoutubeSearchBox';
 
-[build-badge]: https://img.shields.io/travis/user/repo/master.svg?style=flat-square
-[build]: https://travis-ci.org/user/repo
+class Example extends React.Component {
+  render() {
+    return (
+      <YouTubeSearchBox
+        placeHolder="Search Youtube"
+        callback= this._onSearchResultsFound
+      />
+    );
+  }
 
-[npm-badge]: https://img.shields.io/npm/v/npm-package.svg?style=flat-square
-[npm]: https://www.npmjs.org/package/npm-package
+  _onSearchResultsFound(results) {
+    // Results is an array of retreived search results
+    // I use flux, so I dispatch results to an action to display a modal
+    flux.actions.showSearchResults(results);
+  }
+}
+```
 
-[coveralls-badge]: https://img.shields.io/coveralls/user/repo/master.svg?style=flat-square
-[coveralls]: https://coveralls.io/github/user/repo
+# License
+MIT
+
+
+
+

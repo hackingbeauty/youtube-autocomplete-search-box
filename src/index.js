@@ -1,7 +1,8 @@
 import React from 'react';
 import JSONP from 'jsonp';
 import Typeahead from 'react-typeahead-component';
-import OptionsTemplate from './OptionsTemplate'
+import OptionsTemplate from './OptionsTemplate';
+import styles from './styles.scss';
 
 const googleAutoSuggestURL = '//suggestqueries.google.com/complete/search?client=youtube&ds=yt&q=';
 
@@ -37,13 +38,15 @@ export default React.createClass({
 
   render() {
     return <div>
-      <Typeahead
-        inputValue={this.state.inputValue}
-        options={this.state.options}
-        placeholder='Search'
-        onChange={this.handleChange}
-        optionTemplate={OptionsTemplate}
-      />
-    </div>
+        <Typeahead
+          inputValue={this.state.inputValue}
+          options={this.state.options}
+          placeholder='Search'
+          onChange={this.handleChange}
+          optionTemplate={OptionsTemplate}
+        />
+      </div>
   }
-})
+});
+
+
